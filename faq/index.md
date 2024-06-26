@@ -47,7 +47,7 @@ How do I export my repository?
 Use the `pycsw-admin.py` utility to dump the records as XML documents to a directory:
 
 {% highlight bash %}
-pycsw-admin.py -c export_records -f default.cfg -p /path/to/output_dir
+pycsw-admin.py export-records -f default.cfg -p /path/to/output_dir
 {% endhighlight %}
 
 How do I add a custom metadata format?
@@ -113,7 +113,7 @@ response = http_post('http://demo.pycsw.org/cite/csw', request=open('/path/to/re
 Command line tools:
 {% highlight bash %}
 # pycsw-admin.py utility
-pycsw-admin.py -c post_xml -u http://demo.pycsw.org/cite/csw -x /path/to/request.xml
+pycsw-admin.py post-xml -u http://demo.pycsw.org/cite/csw -x /path/to/request.xml
 
 # curl
 curl -X POST -d @/path/to/request.xml http://demo.pycsw.org/cite/csw
@@ -138,10 +138,10 @@ Add metadata using `pycsw-admin.py`:
 
 {% highlight bash %}
 # read a directory of metadata files
-pycsw-admin.py -c load_records -f /path/to/default.cfg -p /path/to/records
+pycsw-admin.py load-records -f /path/to/default.cfg -p /path/to/records
 
 # read a directory of metadata files, recursively
-pycsw-admin.py -c load_records -f /path/to/default.cfg -p /path/to/records -r
+pycsw-admin.py load-records -f /path/to/default.cfg -p /path/to/records -r
 
 {% endhighlight %}
 
@@ -153,7 +153,7 @@ How do I add metadata from a WAF?
 Use the `pycsw-admin.py` [utility](https://docs.pycsw.org/en/latest/administration.html) and CSW's `Harvest` operation against your own server:
 
 {% highlight bash %}
-pycsw-admin.py -c post_xml -u http://localhost/csw -x /path/to/harvest-waf.xml
+pycsw-admin.py post-xml -u http://localhost/csw -x /path/to/harvest-waf.xml
 {% endhighlight %}
 
 `harvest-waf.xml`:
