@@ -57,10 +57,10 @@ For the second option consider the following code. For each of the keyword block
 
 ```python
 _set(context, recobj, 'pycsw:InspireTheme', ", ".join(
-    [t for t in md_identification.keywords if ( 
+    [", ".join(k.name for k in t.keywords if k.name not in [None,'']) for t in md_identification.keywords if ( hasattr(t,'thesaurus') and 
         t.thesaurus not in [None,''] and ((
-            'name' in t.thesaurus and t.thesaurus['name'] not in [None,''] and
-            t.thesaurus['name'] in ['GEMET - INSPIRE themes, version 1.0','GEMET Themes, version 2.3']
+            'title' in t.thesaurus and t.thesaurus['title'] not in [None,''] and
+            t.thesaurus['title'] in ['GEMET - INSPIRE themes, version 1.0','GEMET Themes, version 2.3']
         ) or (
             'uri' in t.thesaurus and t.thesaurus['uri'] not in [None,''] and
             t.thesaurus['uri'] == 'http://inspire.ec.europa.eu/theme')))]))
